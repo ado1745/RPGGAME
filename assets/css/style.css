@@ -1,0 +1,210 @@
+/* Basic RESET */
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    position: relative;
+    min-height: 100%;
+  
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  body{
+    margin: 0 0 100px;
+  }
+
+  a{
+      text-decoration: none;
+      color: black;
+  }
+  a:hover{
+      text-decoration: none;
+      color: black;
+  }
+  
+  ol, ul {
+    list-style: none;
+  }
+
+ 
+/* Basic RESET END */
+/* ---------------------------------------------------------- */
+
+
+/* HEADER */
+.jumbotron{
+    margin-bottom: 0px;
+    height: 100px;
+}
+/* HEADER END */
+
+
+
+/* ---------------------------------------------------------- */
+/* MAIN SECTION */
+.gameSection{
+    width: 90%;
+    
+    margin: 40px auto;
+}
+
+/* Left Side  */
+.card{
+    border: 2px solid lightgray;
+}
+
+.card-body{
+    padding: 0px;
+}
+
+.card-body, p, h5 {
+    text-decoration: none;
+}
+
+.playerName{
+    margin-bottom: 8px;
+}
+
+
+#players{
+    margin: 5px;
+    padding: 10px;
+    transition: transform .2s; 
+    /* height: 200px; */
+}
+
+#players:hover{
+    -ms-transform: scale(0.9); /* IE 9 */
+    -webkit-transform: scale(0.9); /* Safari 3-8 */
+    transform: scale(0.96); 
+}
+
+/* Middle */
+#middleSection{
+    border: 2px solid lightgray;
+    border-radius: 5px;
+}
+
+.gameWelcome{
+    text-align: center;
+    border-bottom: 2px solid lightgray;
+    padding-bottom: 10px;
+    
+}
+
+.gameDiscrip{
+    margin-top: 10px;
+    text-align: center;
+    
+    
+}
+
+.gameDiscrip2{
+    margin-top: 10px;
+    text-align: center;
+    border-bottom: 2px solid lightgray;
+    padding-bottom: 15px;
+}
+
+.fightBtn{
+    margin-top: 20px;
+    
+    text-align: center;
+    /* visibility: hidden; */
+}
+  
+    .fightBtn:hover{
+      
+        cursor: pointer;
+    }
+
+.selectedHeroPic{
+    display: block;
+    margin: 40px auto;
+    margin-bottom: 10px;
+    width: 320px;
+    height: 320px;
+    border-radius: 15px;
+}
+
+.selectedHero{
+    text-align: center;
+}
+.hName{
+    margin-bottom: 8px;
+}
+
+.fighterName{
+    text-align: center;
+    font-weight: 900;
+    font-size: 34px;
+    visibility: hidden;
+}
+
+.selectedEnemyName{
+    font-weight: 600;
+    display: block;
+    color: black;
+}
+.selectedPlayerName{
+    font-weight: 600;
+    display: block;
+    color: black;
+
+    /* text-shadow: 1px 1px 10px black */
+}
+
+.gameButtons{
+    margin: 20px 0 20px 0;
+    text-align: center;
+}
+
+.cntrBtn{
+    margin: 5px;
+    text-align: center;
+}
+
+.VS{
+    color: red;
+}
+
+
+/* Right Side */
+.video{
+    border: 3px solid lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    display: block;
+    position: absolute;
+    top: 20%;
+    pointer-events: none;
+
+}
+
+
+
+
+/* MAIN SECTION END*/
+/* ---------------------------------------------------------- */
+
+
+/* FOOTER */
+.footer{
+    font-size: 12px;
+    padding: 5px;
+    background: black;
+    color: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <script src="./assets/js/gameManager.js"></script>
+    <script src="./assets/js/enemy.js"></script>
+    <script src="./assets/js/player.js"></script>
+
+    <title>RPG Game</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="jumbotron jumbotron-fluid text-center">
+            <h1>Welcome to the Harvard Coding BootCamp Fight Ring</h1>
+        </div>
+    </header>
+
+
+
+
+    <div class="gameSection">
+        <!-- Left Section  -->
+        <div class="row">
+            <div class="col-md-5 getEnemy" id="leftSection">
+
+                <a href="#" onclick="GameManager.setGameStart('Serg')">
+                    <div class="card" id="players">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="./assets/teamOne_Pics/Serg.gif" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="playerName">Serg aka "Champ"</h5>
+                                    <p class="playerDiscription">Serg is Serg, he carries some amazing power that
+                                        can't be recognized right away, but if you feel that you up for the challenge
+                                        go ahead and give him a shot.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" onclick="GameManager.setGameStart('John')">
+                    <div class="card" id="players">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="./assets/teamOne_Pics/John.gif" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="playerName">Handsom John</h5>
+                                    <p class="playerDiscription">Loves Bananas. Don't let his handsomeness
+                                        trick you, John can be very dangerous when he gets mad. He can
+                                        destroy the entire enemy team, don't trust me - test your self.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+
+
+                <a href="#" onclick="GameManager.setGameStart('Tana&Wilson')">
+                    <div class="card" id="players">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="./assets/teamOne_Pics/Tana&Wilson.gif" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="playerName">Tana & "Papa"-Wilson </h5>
+                                    <p class="playerDiscription">This pair of Hero's unique in its own
+                                        way, on its own they don't have much power, but when they fight
+                                        together nothing and no one can't stop them.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+
+
+            <!-- Middle Section -->
+            <div class="col-md-2" id="middleSection">
+
+                <div class="gameDiscrip2">
+                    <h5>The game has 2 Secret Enemies and SuperSecret Boss.
+                        Your goal is to Defet as many Enemies as you can.
+                    </h5>
+                </div>
+
+                <div class="gameDiscrip">
+                    <h5>Please pick your Hero/Hero's to fight agaist enemy. Select
+                        each Hero/Hero's to see their:
+                        <ul>
+                            <li>"Health"</li>
+                            <li>"Power"</li>
+                            <li>"Strenght"</li>
+                            <li>"Speed"</li>
+                        </ul>
+                        Once Ready for a the fight click on "Let's Find Enemy" button.
+                    </h5>
+                </div>
+
+
+
+
+
+                <!-- Find Enemy Btn  -->
+                <div class="fightBtn"></div>
+
+                <!-- Game Control Buttons  -->
+                <div class="gameButtons"></div>
+
+                <!-- Display Fighters -->
+                <div class="fighterName">
+                    <p class="VS"><span class="selectedEnemyName"></span> VS <span class="selectedPlayerName"></span>
+                    </p>
+                </div>
+
+            </div>
+
+
+
+            <!-- Right Section -->
+            <div class="col-md-5 heroInfo" id="rightSection">
+
+                <div class="video">
+                    <video id="vid" src="./assets/videos/New video_Large.mp4" width="100%" controls muted autoplay
+                        loop></video>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <p class="text-center">&copy; Copyright 2019 Serg M.</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+</body>
+
+</html>
