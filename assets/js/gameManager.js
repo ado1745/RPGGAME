@@ -71,8 +71,8 @@ let GameManager = {
 
     setFight: function () {
 
-        let enemy0 = new Enemy("Roxy", 200, 0, 100, 150, 100);
-        let enemy1 = new Enemy("Daniel", 200, 0, 150, 100, 700);
+        let enemy0 = new Enemy("Roxy", 200, 0, 100, 150);
+        let enemy1 = new Enemy("Daniel", 200, 0, 150, 250);
 
         let chooseRandomEnemy = Math.floor(Math.random() * 2);
         console.log(chooseRandomEnemy);

@@ -9,16 +9,11 @@ function Player(classType, health, mana, strength, speed) {
     this.speed = speed;
 }
 
-
-
-
-
 let PlayerMoves = {
     firstMoveCalc: function () {
         //who attack first ? 
         let getPlayerSpeed = player.speed;
         let getEnemySpeed = enemy.speed;
-
 
         let firstMoveCalc = function () {
             if (getPlayerSpeed >= getEnemySpeed) {
@@ -26,33 +21,23 @@ let PlayerMoves = {
                  speed you can attack or defent first?</p>`)
             } else {
                 $(".gameStats").html(`<p class="fightChoice"><strong>${enemy.enemyType}</strong> have faster
-                 speed. He will attack first!</p>`)
+                 speed and going to attack first!</p>`);
+                // setTimeout(function () {
+                //     $(".gameStats").append("<p>Test</p>");
+                // }, 2000);
             }
         }
         firstMoveCalc();
-
-
-
-
     },
 
     playerAttack: function () {
-        let basedDamage = player.strength * player.mana / 1000
-
-        let roundBaseDamge = Math.floor(basedDamage)
-
+        let baseDamage = player.strength * player.mana / 1000
+        // this will always make sure that our baseDamage is round number without any decimal points
+        let roundBaseDamge = Math.floor(baseDamage)
+        // Making sure that we game a bit randomness 
         let offsetDamage = Math.floor(Math.random() * 10) + 1;
-
-        let hitPoints = roundBaseDamge + offsetDamage;
-
-        return hitPoints;
-        // return totalDamagePlayer;
-        // console.log(hitPoints)
+        return roundBaseDamge + offsetDamage;
     },
-
-
-
-
 
 }
 
