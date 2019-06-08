@@ -2,12 +2,16 @@ let GameManager = {
     setGameStart: function (classType) {
         this.resetPlayer(classType);
         this.setPreFight();
+        fight();
+        defend();
+
+
     },
 
     resetPlayer: function (classType) {
         switch (classType) {
             case "Serg":
-                player = new Player(classType, 200, 0, 200, 100, 50); //classType, health, mana, strength, agility, speed
+                player = new Player(classType, 20, 0, 200, 100, 500); //classType, health, mana, strength, agility, speed
                 break;
             case "John":
                 player = new Player(classType, 100, 0, 100, 150, 200); //classType, health, mana, strength, agility, speed
@@ -24,9 +28,9 @@ let GameManager = {
             `<div class="selectedHero">` +
             `<h3 class="hName">${classType}</h3>` +
             `<p class="playerHealth">Health: ${player.health}</p>` +
-            `<p>Power: ${player.mana}</p>` +
+            `<p>Mana: ${player.mana}</p>` +
             `<p>Strenght: ${player.strength}</p>` +
-            `<p>Agility: ${player.agility}</p>` +
+            // `<p>Agility: ${player.agility}</p>` +
             `<p>Speed: ${player.speed}</p>` +
             `</div>`)
 
@@ -37,34 +41,38 @@ let GameManager = {
     setPreFight: function () {
         // Create a lets find Enemey Btn
         let fight = $('.fightBtn');
-        fight.html(`<button type="button"  class="btn-lg btn-outline-dark fightBtn">Let's Find Enemy</button>`);
+        fight.html(`<button type="button"  class="btn-lg btn-outline-dark findEnemyBtn">Let's Find Enemy</button>`);
 
 
         // Create Game Control Btns 
-        $('.fightBtn').on('click', function () {
+        $('.findEnemyBtn').on('click', function () {
             GameManager.setFight()
             fight.hide();
             $('.gameButtons').html(`<button type="button" onclick="GameManager.setFight()" class="btn-lg btn-outline-dark nextEnemy cntrBtn">Next Enemy</button>` +
-                `<button type="button" onclick="" class="btn-lg btn-outline-danger attack cntrBtn">Attack</button>` +
-                `<button type="button" class="btn-lg btn-outline-warning defend cntrBtn">Defend</button>` +
-                `<button type="button" class="btn-lg btn-outline-dark dodge cntrBtn">Dodge</button>`);
-
+                `<button type="button" onclick="" class="btn-lg btn-outline-danger startFightBtn cntrBtn">Start Fight</button>`);
+            // hide middle column game disc
             $('.gameDiscrip').hide();
             $('.gameDiscrip2').hide();
 
-
             //diplay Names after find button pressed 
             $('.fighterName').addClass("visible");
+
+
         });
 
-
+        $(document).on('click', '.startFightBtn', function () {
+            $('.gameButtons').html(
+                `<button type="button" onclick="" class="btn-lg btn-outline-danger attack cntrBtn">Attack</button>` +
+                `<button type="button" class="btn-lg btn-outline-warning defend cntrBtn">Defend</button>`);
+            PlayerMoves.firstMoveCalc();
+        });
 
     },
 
     setFight: function () {
 
-        let enemy0 = new Enemy("Roxy", 200, 0, 1000, 150, 100);
-        let enemy1 = new Enemy("Daniel", 2000, 0, 150, 100, 100);
+        let enemy0 = new Enemy("Roxy", 200, 0, 100, 150, 100);
+        let enemy1 = new Enemy("Daniel", 200, 0, 150, 100, 700);
 
         let chooseRandomEnemy = Math.floor(Math.random() * 2);
         console.log(chooseRandomEnemy);
@@ -84,17 +92,34 @@ let GameManager = {
             `<div class="selectedHero">` +
             `<h3 class="hName">${enemy.enemyType}</h3>` +
             `<p class="enemyHealth">Health: ${enemy.health}</p>` +
-            `<p>Power: ${enemy.mana}</p>` +
+            `<p>Mana: ${enemy.mana}</p>` +
             `<p>Strenght: ${enemy.strength}</p>` +
-            `<p>Agility: ${enemy.agility}</p>` +
+            // `<p>Agility: ${enemy.agility}</p>` +
             `<p>Speed: ${enemy.speed}</p>` +
             `</div>`);
 
         //display fighter Name in the middle column
         $('.selectedEnemyName').html(enemy.enemyType);
-    }
+
+    },
+
 };
 
 
 
 
+
+function fight() {
+    $(document).on('click', '.attack', function () {
+        alert("test");
+    });
+};
+
+
+
+
+function defend() {
+    $(document).on('click', '.defend', function () {
+        alert("test");
+    });
+};

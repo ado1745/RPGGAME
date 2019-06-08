@@ -173,6 +173,14 @@ html {
 
 .VS{
     color: red;
+    margin: 15px 0 15px 0;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+.fightChoice{
+    margin-top: 15px;
+    text-align: center;
 }
 
 
