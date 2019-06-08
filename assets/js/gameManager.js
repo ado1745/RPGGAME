@@ -11,14 +11,14 @@ let GameManager = {
     resetPlayer: function (classType) {
         switch (classType) {
             case "Serg":
-                player = new Player(classType, 20, 0, 200, 100, 500); //classType, health, mana, strength, agility, speed
+                player = new Player(classType, 100, 65, 200, 100); //classType, health, mana, strength, speed
                 break;
             case "John":
-                player = new Player(classType, 100, 0, 100, 150, 200); //classType, health, mana, strength, agility, speed
+                player = new Player(classType, 100, 20, 100, 150); //classType, health, mana, strength, speed
                 break;
 
             case "Tana&Wilson":
-                player = new Player(classType, 80, 0, 50, 200, 50); //classType, health, mana, strength, agility, speed
+                player = new Player(classType, 100, 50, 50, 200); //classType, health, mana, strength, speed
                 break;
 
             default:
@@ -111,7 +111,22 @@ let GameManager = {
 
 function fight() {
     $(document).on('click', '.attack', function () {
-        alert("test");
+        // PlayerMoves.playerAttack();
+        let playerHitPoints = PlayerMoves.playerAttack();
+        $('.gameStats').html(`<p>You hit <strong>${enemy.enemyType}</strong> with ${playerHitPoints}</p>`);
+
+        enemy.health = enemy.health - playerHitPoints;
+        console.log(enemy.health);
+
+        $('.enemyHealth').html(`Health: ${enemy.health}`);
+
+        if (enemy.health <= 0) {
+            $('.enemyHealth').html(`Health: 0`);
+            $('.attack').hide();
+            $('.defend').hide();
+            $('.VS').html(`<p>${player.classType} You won</p>`);
+        }
+
     });
 };
 

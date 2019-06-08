@@ -178,10 +178,14 @@ html {
     border-bottom: 1px solid lightgray;
 }
 
-.fightChoice{
+.gameStats{
     margin-top: 15px;
     text-align: center;
 }
+
+/* .fightChoice{
+    
+} */
 
 
 /* Right Side */

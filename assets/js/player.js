@@ -30,11 +30,31 @@ let PlayerMoves = {
             }
         }
         firstMoveCalc();
+
+
+
+
     },
 
     playerAttack: function () {
+        let basedDamage = player.strength * player.mana / 1000
 
-    }
+        let roundBaseDamge = Math.floor(basedDamage)
+
+        let offsetDamage = Math.floor(Math.random() * 10) + 1;
+
+        let hitPoints = roundBaseDamge + offsetDamage;
+
+        return hitPoints;
+        // return totalDamagePlayer;
+        // console.log(hitPoints)
+    },
+
+
+
+
+
+}
 
 
 
@@ -70,39 +90,39 @@ let PlayerMoves = {
     //     return attackValues;
     // };
 
-    /*   let getPlayerHealth = $('.playerHealth')
-       let getEnemyHealth = $('.enemyHealth')
-       //intiate attack
-       if (getPlayerSpeed >= getEnemySpeed) {
-           let playerAttackValues = playerAttack();
-           let totalDamage = playerAttackValues[0] * playerAttackValues[1];
-           enemy.health = enemy.health - totalDamage;
-           alert(`You hit ${playerAttackValues[1]} damage ${playerAttackValues[1]} times`);
-           if (enemy.health <= 0) {
-               alert("You win, refresh browser to play again");
-               getPlayerHealth.html(`Health: ${player.health}`);
-               getEnemyHealth.text(`Health: 0`);
+/*   let getPlayerHealth = $('.playerHealth')
+   let getEnemyHealth = $('.enemyHealth')
+   //intiate attack
+   if (getPlayerSpeed >= getEnemySpeed) {
+       let playerAttackValues = playerAttack();
+       let totalDamage = playerAttackValues[0] * playerAttackValues[1];
+       enemy.health = enemy.health - totalDamage;
+       alert(`You hit ${playerAttackValues[1]} damage ${playerAttackValues[1]} times`);
+       if (enemy.health <= 0) {
+           alert("You win, refresh browser to play again");
+           getPlayerHealth.html(`Health: ${player.health}`);
+           getEnemyHealth.text(`Health: 0`);
+       } else {
+           getEnemyHealth.html(`Health: ${enemy.health}`);
+
+           let enemyAttackValues = eneyAttack();
+           let totalDamage = enemyAttackValues[0] * enemyAttackValues[1];
+           player.health = player.health - totalDamage;
+           alert(`Enemy hit ${enemyAttackValues[1]} damage ${enemyAttackValues[1]} times`);
+           if (player.health <= 0) {
+               alert("You lose, refresh browser to play again");
+               getPlayerHealth.html(`Health: )`);
+               getEnemyHealth.text(`Health: ${enemy.health}`);
+
            } else {
-               getEnemyHealth.html(`Health: ${enemy.health}`);
- 
-               let enemyAttackValues = eneyAttack();
-               let totalDamage = enemyAttackValues[0] * enemyAttackValues[1];
-               player.health = player.health - totalDamage;
-               alert(`Enemy hit ${enemyAttackValues[1]} damage ${enemyAttackValues[1]} times`);
-               if (player.health <= 0) {
-                   alert("You lose, refresh browser to play again");
-                   getPlayerHealth.html(`Health: )`);
-                   getEnemyHealth.text(`Health: ${enemy.health}`);
- 
-               } else {
-                   getPlayerHealth.text(`Health: ${player.health}`);
- 
-               }
-           };
-       }
+               getPlayerHealth.text(`Health: ${player.health}`);
+
+           }
+       };
+   }
 */
 
 
-}
+
 
 
