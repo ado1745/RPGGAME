@@ -30,12 +30,23 @@ let PlayerMoves = {
 
     playerAttack: function () {
         let baseDamage = player.strength * player.mana / 1000
+        // console.log(`Player Based: ${baseDamage}`);
         // this will always make sure that our baseDamage is round number without any decimal points
         let roundBaseDamge = Math.floor(baseDamage)
         // Making sure that we game a bit randomness 
         let offsetDamage = Math.floor(Math.random() * 10) + 1;
         return roundBaseDamge + offsetDamage;
     },
+
+    playerDodge: function () {
+        let manaOffset = Math.floor(Math.random() * 5) + 1;
+        let strengthOffer = Math.floor(Math.random() * 5) + 1;
+        // console.log(manaOffset);
+        // console.log(strengthOffer);
+
+        player.mana = player.mana - manaOffset;
+        player.strength = player.strength - strengthOffer;
+    }
 
 };
 

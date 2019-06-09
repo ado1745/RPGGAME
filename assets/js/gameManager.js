@@ -3,9 +3,7 @@ let GameManager = {
         this.resetPlayer(classType);
         this.setPreFight();
         plaerAttackMove();
-        defend();
-
-
+        dodge();
     },
 
     resetPlayer: function (classType) {
@@ -28,8 +26,8 @@ let GameManager = {
             `<div class="selectedHero">` +
             `<h3 class="hName">${classType}</h3>` +
             `<p class="playerHealth">Health: ${player.health}</p>` +
-            `<p>Mana: ${player.mana}</p>` +
-            `<p>Strenght: ${player.strength}</p>` +
+            `<p class="playerMana">Mana: ${player.mana}</p>` +
+            `<p class="playerStrenght">Strenght: ${player.strength}</p>` +
             // `<p>Agility: ${player.agility}</p>` +
             `<p>Speed: ${player.speed}</p>` +
             `</div>`)
@@ -63,7 +61,7 @@ let GameManager = {
         $(document).on('click', '.startFightBtn', function () {
             $('.gameButtons').html(
                 `<button type="button" onclick="" class="btn-lg btn-outline-danger attack cntrBtn">Attack</button>` +
-                `<button type="button" class="btn-lg btn-outline-warning defend cntrBtn">Defend</button>`);
+                `<button type="button" class="btn-lg btn-outline-warning dodge cntrBtn">Dodge</button>`);
             PlayerMoves.firstMoveCalc();
         });
 
@@ -75,7 +73,7 @@ let GameManager = {
         let enemy1 = new Enemy("Daniel", 200, 0, 150, 250);
 
         let chooseRandomEnemy = Math.floor(Math.random() * 2);
-        console.log(chooseRandomEnemy);
+        // console.log(chooseRandomEnemy);
 
         switch (chooseRandomEnemy) {
             case 0:
@@ -112,10 +110,11 @@ let GameManager = {
 function plaerAttackMove() {
     $(document).on('click', '.attack', function () {
         let playerHitPoints = PlayerMoves.playerAttack();
+        // console.log(`Player hit poing ${playerHitPoints}`)
         $('.gameStats').html(`<p>You hit <strong>${enemy.enemyType}</strong> with ${playerHitPoints} points</p>`);
 
         enemy.health = enemy.health - playerHitPoints;
-        console.log(enemy.health);
+        // console.log(enemy.health);
 
         $('.enemyHealth').html(`Health: ${enemy.health}`);
         $('.enemyTimer').show();
@@ -133,14 +132,14 @@ function plaerAttackMove() {
     });
 };
 
-// Enemy attack move 
+// ENEMY attack move 
 function enemyAttackMove() {
 
     let enemyHitPoint = EnemyMoves.enemyAttack();
     $('.gameStats').html(`<p><strong>${enemy.enemyType}</strong> hit you with ${enemyHitPoint} points</p>`);
 
     player.health = player.health - enemyHitPoint;
-    console.log(player.health);
+    // console.log(player.health);
 
     $('.playerHealth').html(`Health: ${player.health}`);
 
@@ -155,9 +154,20 @@ function enemyAttackMove() {
 
 
 
+// DODGE move func
+function dodge() {
+    $(document).on('click', '.dodge', function () {
+        // ran Player Dodge Function to skip a move 
+        PlayerMoves.playerDodge();
 
-function defend() {
-    $(document).on('click', '.defend', function () {
-        alert("test");
+        // Update player stats with new Mana and Strength values 
+        $('.playerMana').html(`Mana: ${player.mana}`);
+        $('.playerStrenght').html(`Strenght: ${player.strength}`);
+
+        // after dodge move ran Enemy Attack Func
+        EnemyMoves.enemyTimerFun();
+
+        // console.log(`Player updated Mana ${player.mana}`);
+        // console.log(`Player updated Strength ${player.strength}`);
     });
 };
