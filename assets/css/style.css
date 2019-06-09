@@ -183,9 +183,14 @@ html {
     text-align: center;
 }
 
-/* .fightChoice{
-    
-} */
+.enemyTimer{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 30px;
+   
+}
+
+
 
 
 /* Right Side */

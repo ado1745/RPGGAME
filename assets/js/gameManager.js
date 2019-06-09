@@ -2,7 +2,7 @@ let GameManager = {
     setGameStart: function (classType) {
         this.resetPlayer(classType);
         this.setPreFight();
-        fight();
+        plaerAttackMove();
         defend();
 
 
@@ -71,7 +71,7 @@ let GameManager = {
 
     setFight: function () {
 
-        let enemy0 = new Enemy("Roxy", 200, 0, 100, 150);
+        let enemy0 = new Enemy("Roxy", 20, 0, 100, 150);
         let enemy1 = new Enemy("Daniel", 200, 0, 150, 250);
 
         let chooseRandomEnemy = Math.floor(Math.random() * 2);
@@ -108,27 +108,50 @@ let GameManager = {
 
 
 
-
-function fight() {
+// Player attack move 
+function plaerAttackMove() {
     $(document).on('click', '.attack', function () {
-        // PlayerMoves.playerAttack();
         let playerHitPoints = PlayerMoves.playerAttack();
-        $('.gameStats').html(`<p>You hit <strong>${enemy.enemyType}</strong> with ${playerHitPoints}</p>`);
+        $('.gameStats').html(`<p>You hit <strong>${enemy.enemyType}</strong> with ${playerHitPoints} points</p>`);
 
         enemy.health = enemy.health - playerHitPoints;
         console.log(enemy.health);
 
         $('.enemyHealth').html(`Health: ${enemy.health}`);
+        $('.enemyTimer').show();
+        EnemyMoves.enemyTimerFun();
+
 
         if (enemy.health <= 0) {
             $('.enemyHealth').html(`Health: 0`);
             $('.attack').hide();
             $('.defend').hide();
             $('.VS').html(`<p>${player.classType} You won</p>`);
+
         }
 
     });
 };
+
+// Enemy attack move 
+function enemyAttackMove() {
+
+    let enemyHitPoint = EnemyMoves.enemyAttack();
+    $('.gameStats').html(`<p><strong>${enemy.enemyType}</strong> hit you with ${enemyHitPoint} points</p>`);
+
+    player.health = player.health - enemyHitPoint;
+    console.log(player.health);
+
+    $('.playerHealth').html(`Health: ${player.health}`);
+
+    if (player.health <= 0) {
+        $('.playerHealth').html(`Health: 0`);
+        $('.attack').hide();
+        $('.defend').hide();
+        $('.VS').html(`<p>${player.classType} You lost</p>`);
+    }
+};
+
 
 
 
